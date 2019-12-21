@@ -2,6 +2,7 @@
   "name": "cp-problems",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://southball.github.io/cp-problems/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && touch build/.nojekyll",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
