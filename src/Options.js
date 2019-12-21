@@ -33,17 +33,21 @@ export default function Options() {
     input.click();
   }
 
-  function exportData() {
-    const json = JSON.stringify(state.problems);
-    const blob = new Blob([json], { type: 'octet/stream' });
+  function downloadString(filename, string) {
+    const blob = new Blob([string]);
     const url = URL.createObjectURL(blob);
 
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = 'problems.json';
+    anchor.download = filename;
     anchor.click();
 
     URL.revokeObjectURL(url);
+  }
+
+  function exportData() {
+    const json = JSON.stringify(state.problems);
+    downloadString('problems.json', json);
   }
 
   function exportMarkdown() {
@@ -59,9 +63,9 @@ export default function Options() {
           : Judges[problem.judge].name;
 
         line += ` ${problem.problemId}`;
-        if (state.options.showDifficulty && problem.name !== '' && problem.difficulty !== '-')
+        if (problem.name !== '' && problem.name !== '-')
           line += ` - ${problem.name}`;
-        if (problem.difficulty !== '' && problem.difficulty !== '-')
+        if (state.options.showDifficulty && problem.difficulty !== '' && problem.difficulty !== '-')
           line += ` (${problem.difficulty})`;
         line += ']';
         line += `(${problem.url})`;
@@ -69,7 +73,8 @@ export default function Options() {
         return line;
       })
       .join('\n') + '\n';
-    console.log(markdown);
+
+    downloadString('problems.md', markdown);
   }
 
   function sortProblems() {

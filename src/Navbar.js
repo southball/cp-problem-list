@@ -11,6 +11,7 @@ export default function AppNavbar() {
         <Nav>
           <Nav.Link href='#list'>List</Nav.Link>
           <Nav.Link href='#options'>Options</Nav.Link>
+          <Nav.Link href='#help'>Help</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
