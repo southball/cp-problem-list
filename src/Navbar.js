@@ -12,6 +12,7 @@ export default function AppNavbar() {
           <Nav.Link href='#list'>List</Nav.Link>
           <Nav.Link href='#options'>Options</Nav.Link>
           <Nav.Link href='#help'>Help</Nav.Link>
+          <Nav.Link href='https://github.com/southball/cp-problems/'>GitHub</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
